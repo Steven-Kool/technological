@@ -57,7 +57,7 @@ body {
 
 .logo-holder {
    text-align: center;
-   padding: 0 0 0 40px;
+   padding: 0 0 0 80px;
 }
 
 .logo-holder span {
@@ -72,7 +72,7 @@ body {
    align-items: center;
 }
 
-.navbar div {
+.link-holder div {
    margin: 0 40px;
 }
 
@@ -123,7 +123,7 @@ a {
 }
 
 .right-holder .image {
-   width: 100%;
+   width: 80%;
    height: auto;
 }
 
