@@ -61,16 +61,7 @@ const feedbackHolder = document.getElementById('rating-reaction');
 const rating = (event) => {
    const rate = event.target.id;
 
-   if (rate == 1) {
-      feedbackHolder.innerHTML = '<div>I am So Sad!!!</div>';
-   } if (rate == 2) {
-      feedbackHolder.innerHTML = '<div>Whatever!!!</div>';
-   } if (rate == 3) {
-      feedbackHolder.innerHTML = '<div>Not Bad</div>';
-   } if (rate == 4) {
-      feedbackHolder.innerHTML = '<div>Thanks A Lot!!!</div>'
-   }
-   console.log(rate);
+   feedbackHolder.innerHTML = `<div>${rate}</div>`;
 };
 
 buttons.forEach((button) => {
