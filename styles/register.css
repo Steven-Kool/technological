@@ -1,32 +1,139 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 .form-holder {
-   padding: 120px 0 60px 0;
+   padding: 80px 0 60px 0;
+   width: 100%;
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
+   font-family: 'Poppins', sans-serif;
+   color: rgb(46, 46, 46);
 }
 
-.form-holder div {
+.form-holder .regi-holder {
+   width: 350px;
+   position: relative;
    display: flex;
    justify-content: center;
    align-items: center;
 }
 
 .form-holder input {
+   flex: 1;
    outline: none;
-   width: 300px;
-   margin: 10px 0 10px -50px;
-   padding: 15px 15px 15px 65px;
+   margin: 10px 0;
+   padding: 10px 10px 10px 60px;
    font-family: 'Poppins', sans-serif;
-   font-size: 20px;
-   border: none;
+   font-size: 17px;
+   border: 1px solid rgb(151, 151, 151);
    border-radius: 3px;
-   background-color: rgb(207, 207, 207);
+}
+
+.form-holder #number::-webkit-inner-spin-button, .form-holder #number::-webkit-outer-spin-button {
+   -webkit-appearance: none;
 }
 
 .form-holder img {
-   width: 30px;
+   position: absolute;
+   vertical-align: center;
+   left: 15px;
+   width: 28px;
    z-index: 3;
 }
+
+.radio-holder {
+   margin: 10px 0 20px 0;
+   width: 350px;
+   display: flex;
+   justify-content: start;
+   align-items: start;
+}
+
+.radio-holder .input-holder {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 0 10px;
+}
+
+.input-holder {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.input-holder p {
+   font-size: 18px;
+   margin: 0 0 0 10px;
+}
+
+.dropdown-holder {
+   width: 350px;
+   margin: 0 0 20px 0;
+   display: flex;
+   justify-content: start;
+   align-items: center;
+}
+
+.dropdown-holder span {
+   font-size: 20px;
+   margin: 0 10px 0 0;
+}
+
+.dropdown-holder select {
+   width: 180px;
+   padding: 5px;
+   font-family: 'Poppins', sans-serif;
+   font-size: 20px;
+   border-radius: 5px;
+   color: #ffffff;
+   background-color: rgb(4, 7, 44);
+   border: none;
+}
+
+.policy-holder {
+   width:370px;
+   margin: 0 0 20px 0;
+   display: flex;
+   justify-content: start;
+   align-items: center;
+}
+
+.policy-holder span {
+   font-size: 15px;
+   color: orangered;
+}
+
+.alert-holder {
+   position: fixed;
+   right: 10px;
+   bottom: 10px;
+   width: 200px;
+   display: flex;
+   flex-direction: column;
+   justify-items: center;
+   align-items: center;
+   font-family: 'Poppins', sans-serif;
+   font-size: 20px;
+}
+
+.alert {
+   border: none;
+   border-radius: 5px;
+   padding: 10px;
+   margin: 10px 0;
+   text-align: center;
+}
+
+.left-alert {
+   background-color: rgb(201, 45, 45);
+   color: rgb(216, 216, 216);
+}
+
+.policy-alert {
+   background-color: rgb(255, 255, 64);
+   color: rgb(226, 226, 226);
+}
+
+

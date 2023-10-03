@@ -8,30 +8,55 @@
    <script src="../js/index.js" defer></script>
    <title>Register</title>
 </head>
-<body id="body" style="height: 100vh;">
+<body id="body" style="height: 100vh; background-color: rgb(255, 255, 255);">
 
    <div class="form-holder">
-      <div>
-         <img src="../images/10.png"/>
+      <div class="regi-holder">
+         <img src="../images/11.png"/>
          <input type="text" id="name" placeholder="Enter Your Name"/>
       </div>
-      <div>
-         <img src="../images/11.png"/>
+      <div class="regi-holder">
+         <img src="../images/10.png"/>
          <input type="text" id="email" placeholder="Enter Your Email"/>
       </div>
-      <div>
+      <div class="regi-holder">
          <img src="../images/12.png"/>
          <input type="number" id="number" placeholder="Enter Your Phone Number"/>
       </div>
 
       <div class="radio-holder">
-         <input type="radio" name="gender" value="male" id="male"/>
-         <label for="male">Male</label>
+         <div class="input-holder">
+            <input type="radio" name="gender" value="male" id="male"/>
+            <p>Male</p>
+         </div>
 
-         <input type="radio" name="gender" value="female" id="female"/>
-         <label for="female">Female</label>
+         <div class="input-holder">
+            <input type="radio" name="gender" value="female" id="female"/>
+            <p>Female</p>
+         </div>
       </div>
+
+      <div class="dropdown-holder">
+         <span>You are a :</span>
+         <select name="type" id="type">
+            <option value="student">Student</option>
+            <option value="gardient">Gardient</option>
+            <option value="others">Others</option>
+         </select>
+      </div>
+
+      <div class="policy-holder">
+         <input type="checkbox" id="checkbox">
+         <span>I accept that I am one of the Luffy's crew!!!</span>
+      </div>
+
+      <div class="button-holder">
+         <button id="button" onclick=submitting() style="font-size: 20px;">Submit</button>
+      </div>
+
+      
    </div>
-   
+
+   <div class="alert-holder" id="alertHolder"></div>
 </body>
 </html>

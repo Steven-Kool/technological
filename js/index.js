@@ -1,13 +1,13 @@
 const title = document.title;
 const Body = document.getElementById('body');
 const Navbar = `
-<div class="navbar" id="navbar">
+<div class="navbar" id="navbar" ${title == 'Register' ? 'style="height: 70px"' : ''}>
    <div class="logo-holder">
       <span style="margin-right: 18px; color: #E6304E">Luffy's</span><span style="color: rgb(20, 220, 255);">Center</span>
    </div>
 
-   <div class="link-button-holder">
-      <div class="link-holder">
+   <div class="link-button-holder" ${title == 'Register' ? 'style="flex: 1; margin: 0 0 0 100px"' : ''}>
+      <div class="link-holder" ${title == 'Register' ? 'style="flex: 1; justify-content: space-around; margin: 0;"' : ''}>
          <div>
             <a href="/template/index.html">Home</a>
          </div>
@@ -67,3 +67,52 @@ const rating = (event) => {
 buttons.forEach((button) => {
    button.addEventListener('click', rating)
 });
+
+// For Alert Part
+
+let alertArray = [];
+
+const createAlert = (message, type) => {
+   const alertId = new Date().getTime();
+   const alert = { id: alertId, message: message, type: type };
+   const alertHolder = document.getElementById('alertHolder');
+
+   alertArray.push(alert);
+
+   setTimeout(() => {
+      alertArray = alertArray.filter((alert) => alert.id !== alertId);
+   }, 4000);
+
+   alertArray.forEach((alert) => {
+      const item = `
+      <div class="alert ${alert.type == 'left' ? 'left-alert' : 'policy-alert'}">
+         ${alert.message}
+      </div>`;
+
+      alertHolder.innerHTML += item;
+   });
+};
+
+// Submitting
+
+const submitting = () => {
+   const userName = document.getElementById('name');
+   const email = document.getElementById('email');
+   const number = document.getElementById('number');
+   const male = document.getElementById('male');
+   const female = document.getElementById('female');
+   const type = document.getElementById('type');
+   const checkbox = document.getElementById('checkbox');
+
+   const userNameValue = userName.value.trim();
+   const emailValue = email.value.trim();
+   const numberValue = number.value.trim();
+
+   if (userNameValue || emailValue || numberValue == '') {
+      createAlert('Please fill all the fields', 'left');
+   } if (!male.checked && !female.checked) {
+      createAlert('Please fill all the fields', 'left');
+   } if (!checkbox.checked) {
+      createAlert(`Must accept Luffy's term`);
+   }
+};
