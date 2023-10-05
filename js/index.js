@@ -68,31 +68,6 @@ buttons.forEach((button) => {
    button.addEventListener('click', rating)
 });
 
-// For Alert Part
-
-let alertArray = [];
-
-const createAlert = (message, type) => {
-   const alertId = new Date().getTime();
-   const alert = { id: alertId, message: message, type: type };
-   const alertHolder = document.getElementById('alertHolder');
-
-   alertArray.push(alert);
-
-   setTimeout(() => {
-      alertArray = alertArray.filter((alert) => alert.id !== alertId);
-   }, 4000);
-
-   alertArray.forEach((alert) => {
-      const item = `
-      <div class="alert ${alert.type == 'left' ? 'left-alert' : 'policy-alert'}">
-         ${alert.message}
-      </div>`;
-
-      alertHolder.innerHTML += item;
-   });
-};
-
 // Submitting
 
 const submitting = () => {
@@ -103,16 +78,45 @@ const submitting = () => {
    const female = document.getElementById('female');
    const type = document.getElementById('type');
    const checkbox = document.getElementById('checkbox');
+   const formHolder = document.getElementById('formHolder');
 
    const userNameValue = userName.value.trim();
    const emailValue = email.value.trim();
    const numberValue = number.value.trim();
 
-   if (userNameValue || emailValue || numberValue == '') {
-      createAlert('Please fill all the fields', 'left');
-   } if (!male.checked && !female.checked) {
-      createAlert('Please fill all the fields', 'left');
-   } if (!checkbox.checked) {
-      createAlert(`Must accept Luffy's term`);
-   }
+   const checking1 = () => {
+      if (userNameValue === '' || emailValue === '' || numberValue === '') {
+         return false;
+      } else {
+         return true;
+      }
+   }; 
+
+   const checking2 = () => {
+      if (!male.checked && !female.checked || !checkbox.checked) {
+         return false;
+      } else {
+         return true;
+      };
+   };
+   
+   if (!checking1() || !checking2()) {
+      const item = `
+      <div class="alert">
+         Please Fill all Fields
+      </div>`;
+   
+      alertHolder.innerHTML = item;
+   } else {
+      result = `
+      <div class="result-holder">
+         <h1>My Profile</h1>
+         <div style="font-size: 25px; font-weight: 500">I am <span style="font-weight: 600">${userNameValue}</span></div>
+         <div style="font-size: 22px;">My Email is : <span style="font-weight: 600">${emailValue}</span></div>
+         <div style="font-size: 22px;">Here is my Number <span style="font-weight: 600">${numberValue}</span></div>
+         <div style="font-size: 22px;">I am <span style="font-weight: 600">${male.checked ? 'male' : 'female'}</span> and I am a <span style="font-weight: 600">${type.value == 'others' ? 'someone else' : type.value}</span></div>
+      </div>`
+      formHolder.innerHTML = '';
+      formHolder.innerHTML = result;
+   }   
 };
